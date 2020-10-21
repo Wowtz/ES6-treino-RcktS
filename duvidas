@@ -1,0 +1,175 @@
+
+const arr = [1, 3, 5, 2, 6, 8, 2, 7]
+const arr1 = [1, 3, 5]
+
+  const newArr = arr.map(item => item +10)
+
+console.log(newArr)
+
+const sum = arr.reduce(function(total, next) {
+  return total + next
+})
+
+console.log(sum)
+
+const filter = arr.filter(function(item) {
+  return item % 2 === 0
+})
+
+console.log(filter)
+
+const find = arr.find(item => item === 8)
+
+console.log(find)
+
+// 1 
+
+class Usuario {
+  constructor(email, senha) {
+    this.email = email
+    this.senha = senha
+  }
+  
+  isAdmin() {
+    return this.admin === true
+  }
+}
+
+class Admin extends Usuario {
+  constructor(email, senha) {
+    super(email, senha)
+    
+    this.admin = true
+  }
+}
+
+const Usuario1 = new Usuario('Usuario1', '123123123')
+const Adm1 = new Admin('administrador', 'senhadocaralho')
+
+console.log(Usuario1.isAdmin())
+console.log(Adm1.isAdmin())
+
+// 2 
+
+const usuarios = [
+  { nome: 'Diego', idade: 23, empresa: 'Rocketseat' },
+  { nome: 'Gabriel', idade: 15, empresa: 'Rocketseat' },
+  { nome: 'Lucas', idade: 30, empresa: 'Facebook' },
+ ];
+
+ const mapUsuarios = usuarios.map(function(usuario, idade){
+   return usuario.idade
+ })
+
+ console.log(mapUsuarios)
+
+ const filterUsuarios = usuarios.filter(usuario => usuario.idade > 18 && usuario.empresa === 'Rocketseat')
+
+ console.log(filterUsuarios)
+
+ const findUsuarios = usuarios.find(usuario => usuario.empresa === 'Google')
+
+ console.log(findUsuarios)
+
+ const usuariosvezesdois = usuarios.map(usuario => usuario.idade * 2)
+
+ console.log(usuariosvezesdois)
+
+ const maiorquecinquenta = usuariosvezesdois.filter(idade => idade > 50)
+
+ console.log (maiorquecinquenta)
+
+
+ /// 3 
+
+ // 3.2
+// Dica: Utilize uma constante pra function
+const usuario = { nome: 'Diego', idade: 23 };
+const mostraridadeusuario = usuario => console.log(usuario.idade)
+
+mostraridadeusuario(usuario);
+
+// 3.3
+// Dica: Utilize uma constante pra function
+const nome = "Diego";
+const idade = 23;
+
+const mostraUsuariooo = (nome = "Diego", idade = 23) => ({
+  nome,
+  idade
+})
+
+mostraUsuariooo(nome, idade);
+mostraUsuariooo(nome);
+
+// 3.4
+// const promise = () => new Promise((resolve, reject) = resolve)
+
+// 4
+
+const empresa = {
+  nomee: 'Rocketseat',
+  enderecoe: {
+  cidadee: 'Rio do Sul',
+  estadoe: 'SC',
+  }
+ };
+
+ const {nomee, enderecoe, enderecoe:{cidadee, estadoe}} = empresa
+
+console.log(nomee); // Rocketseat
+console.log(cidadee); // Rio do Sul
+console.log(estadoe); // SC
+
+
+function mostraInfo(nome, idade) {
+  return `${nome} tem ${idade} anos.`;
+ }
+ mostraInfo({ nome: 'Diego', idade: 23 })
+
+
+ //5 com o array do começo
+
+ const [x, ...y] = arr
+
+ console.log(x)
+ console.log(y)
+
+ const somageral = (...numeros) => numeros.reduce((a, b) => a + b)
+
+ console.log(somageral(1, 2, 3, 4, 5, 6))
+ console.log(somageral(1,2))  
+
+ const customer = {
+  nome: 'Diego',
+  idade: 23,
+  endereco: {
+  cidade: 'Rio do Sul',
+  uf: 'SC',
+  pais: 'Brasil'
+  }
+ }
+
+ const customer1 = {...customer, nome:"Diego"}
+ const customer2 = {...customer, nome:"Walter", endereco:{...customer.endereco, cidade:"Ibiuna"}}
+
+ console.log(customer1)
+ console.log(customer2)
+
+ console.log(adicao(99,2))
+
+
+
+ const minhaPromise = () => new Promise((resolve, reject) => {
+  setTimeout(() => {resolve('ok') }, 2000)
+})
+
+const executaPromise = async () =>{
+  console.log(await minhaPromise())
+  console.log(await minhaPromise())
+  console.log(await minhaPromise())
+  console.log(await minhaPromise())
+  console.log(await minhaPromise())
+}
+
+executaPromise() 
